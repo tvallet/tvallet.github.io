@@ -3,9 +3,8 @@
 	<head>
 		<title>WebService</title>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
-		
-		<script>
-			<!-- Info WS -->
+	</head>
+	<script>
 			var xmlhttp = new XMLHttpRequest();
 			xmlhttp.onreadystatechange = function() {
 				if (this.readyState == 4 && this.status == 200) {
@@ -17,7 +16,6 @@
 			xmlhttp.open("GET", "http://bitcoin.mubiz.com/info", true);
 			xmlhttp.send();
 			
-			<!-- Blockchain info -->
 			var xmlhttp = new XMLHttpRequest();
 			xmlhttp.onreadystatechange = function() {
 				if (this.readyState == 4 && this.status == 200) {
@@ -29,7 +27,6 @@
 			xmlhttp.open("GET", "http://bitcoin.mubiz.com/blockchaininfo", true);
 			xmlhttp.send();
 			
-			<!-- peer info -->
 			var xmlhttp = new XMLHttpRequest();
 			xmlhttp.onreadystatechange = function() {
 				if (this.readyState == 4 && this.status == 200) {
@@ -41,7 +38,6 @@
 			xmlhttp.open("GET", "http://bitcoin.mubiz.com/peerinfo", true);
 			xmlhttp.send();
 			
-			<!-- mining info -->
 			var xmlhttp = new XMLHttpRequest();
 			xmlhttp.onreadystatechange = function() {
 				if (this.readyState == 4 && this.status == 200) {
@@ -52,8 +48,7 @@
 			};
 			xmlhttp.open("GET", "http://bitcoin.mubiz.com/mininginfo", true);
 			xmlhttp.send();
-		</script>
-	</head>
+	</script>
 	
 	<body>
 		<h1>Données :</h1>
