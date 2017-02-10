@@ -1,33 +1,84 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<title>WebService</title>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
-		<title> page </title>						
+		
+		<script>
+			<!-- Info WS -->
+			var xmlhttp = new XMLHttpRequest();
+			xmlhttp.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status == 200) {
+					var myObj = this.responseText;
+					var jsonPretty = JSON.stringify(JSON.parse(myObj),null,2);
+					document.getElementById("demo").innerHTML = jsonPretty;
+				}
+			};
+			xmlhttp.open("GET", "http://bitcoin.mubiz.com/info", true);
+			xmlhttp.send();
+			
+			<!-- Blockchain info -->
+			var xmlhttp = new XMLHttpRequest();
+			xmlhttp.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status == 200) {
+					var myObj = this.responseText;
+					var jsonPretty = JSON.stringify(JSON.parse(myObj),null,2);
+					document.getElementById("blockchain_info").innerHTML = jsonPretty;
+				}
+			};
+			xmlhttp.open("GET", "http://bitcoin.mubiz.com/blockchaininfo", true);
+			xmlhttp.send();
+			
+			<!-- peer info -->
+			var xmlhttp = new XMLHttpRequest();
+			xmlhttp.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status == 200) {
+					var myObj = this.responseText;
+					var jsonPretty = JSON.stringify(JSON.parse(myObj),null,2);
+					document.getElementById("peer_info").innerHTML = jsonPretty;
+				}
+			};
+			xmlhttp.open("GET", "http://bitcoin.mubiz.com/peerinfo", true);
+			xmlhttp.send();
+			
+			<!-- mining info -->
+			var xmlhttp = new XMLHttpRequest();
+			xmlhttp.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status == 200) {
+					var myObj = this.responseText;
+					var jsonPretty = JSON.stringify(JSON.parse(myObj),null,2);
+					document.getElementById("mining_info").innerHTML = jsonPretty;
+				}
+			};
+			xmlhttp.open("GET", "http://bitcoin.mubiz.com/mininginfo", true);
+			xmlhttp.send();
+		</script>
 	</head>
 	
-	<script>
-		var xmlhttp = new XMLHttpRequest();
-		xmlhttp.onreadystatechange = function() {
-		if (this.readyState == 4 && this.status == 200) {
-			var myObj = this.responseText;
-			var jsonPretty = JSON.stringify(JSON.parse(myObj),null,2);
-			document.getElementById("demo").innerHTML = jsonPretty;
-			}
-		};
-		xmlhttp.open("GET", "https://api.blockcypher.com/v1/btc/main", true);
-		xmlhttp.send();
-		
-	</script>
-	
 	<body>
-		<h1>Salut</h1>
+		<h1>Données :</h1>
+		
 		<div class="row">
 			<div class="col-lg-12 col-xs-6">
-			<pre>
-				<code id="demo" class="json kljs"></code>
-			</pre>
+				<pre>
+					<h2>Informations WebService (Mubiz)</h2>
+					<code id="demo" class="json kljs"></code>
+					<h2>Informations blockchain</h2>
+					<code id="blockchain_info" class="json kljs"></code>
+					<h2>Informations peer</h2>
+					<code id="peer_info" class="json kljs"></code>
+					<h2>Informations mining</h2>
+					<code id="mining_info" class="json kljs"></code>
+				</pre>
 			</div>
 		</div>
+		
+		
+		
+		
+		
+		
+		<!-- Doit rester à la fin du body -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 		<script src="../custom.js"></script>
